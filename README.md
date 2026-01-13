@@ -1,9 +1,7 @@
-# Python Activities (Future Connect)
+# Python Projects (Future Connect)
 
 ## Summary
-A project that I created to host various assignment activities from the foundation Python module for my Data Science certification course with Future Connect.
-
-Contains the answers to the following
+This is a project created to hold the `Python Projects` module code that I created as part of the Data Science training/certification course with Future Connect. The repo will contain basic Python scripts demonstrating the fundamental programming concepts and techniques necessary for the assigned exercises.
 
 ## How I created this project
 1. Created this project folder (fc-python-activities)
@@ -24,7 +22,7 @@ gh repo create
 ? What would you like to do? Push an existing local repository to GitHub
 ? Path to local repository .
 ? Repository name fc-python-activities
-? Description A project that I created to host various assignment activities from the foundation Python module for my Data Science certification course with Future Connect.
+? Description This is a project created to hold the `Python Projects` module code that I created as part of the Data Science training/certification course with Future Connect. The repo will contain basic Python scripts demonstrating the fundamental programming concepts and techniques necessary for the assigned exercises.
 ? Visibility Public
 ✓ Created repository rebellious-developer/fc-python-activities on GitHub
   https://github.com/rebellious-developer/fc-python-activities

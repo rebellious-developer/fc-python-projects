@@ -1,0 +1,5 @@
+# No external dependencies required yet
+# Add dependencies here as the project grows
+# Example:
+# requests==2.25.1
+# numpy==1.19.5
