@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Renames all files in a directory based on a specified pattern.
+Scrapes data from Wikipedia using Beautiful Soup in Python and then extracts specific information and formats it for output.
 
 Notes:
 - The task is to scrape the list of largest companies in US by revenue form wikipedia using Beautiful Soup in Python. The data required to be extracted includes the rank, name of company, Industry, Revenue, Revenue growth, Headquaters.
