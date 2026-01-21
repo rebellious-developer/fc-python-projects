@@ -1,5 +1,2 @@
-# No external dependencies required yet
-# Add dependencies here as the project grows
-# Example:
-# requests==2.25.1
-# numpy==1.19.5
+numpy==2.4.1
+aiosmtpd==1.4.6

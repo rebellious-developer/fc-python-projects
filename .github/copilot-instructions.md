@@ -19,6 +19,7 @@ Currently minimal structure:
 1. Each exercise uses it's own virtual environment.
 2. Python version 3.12 specified in `.python-version`.
 3. Each exercise is in it's own sub-folder named by the exercise number and topic.
+4. For all code obey the editorconfig rules (PEP8). Use 2 spaces for indentation.
 
 ### System Configuration
 - **OS**: Ubuntu LTS
