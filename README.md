@@ -168,6 +168,7 @@ Email sent successfully to ['scott@example.com'] with CC to [] and BCC to [].
 
 From the terminal running the SMTP server:
 python3 -m aiosmtpd -n -c aiosmtpd.handlers.Debugging -l localhost:1025
+
 ---------- MESSAGE FOLLOWS ----------
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
@@ -180,7 +181,6 @@ X-Peer: ('127.0.0.1', 53698)
 
 This is a test email from your mom.
 ------------ END MESSAGE ------------
-
 """
 ```
 
@@ -264,37 +264,111 @@ Goodbye!
 # See folder `5-large-file-renamer` for my code
 
 """
-Sample output:-
+Sample output (in this case I passed no args via command line and used the defaults):-
 
-TODO
+./large-file-renamer.py
+File Renaming Sample Project
+
+Usage: usage: large-file-renamer.py [-h] [--in_dir IN_DIR] [--out_dir OUT_DIR] [--pattern PATTERN]
+
+Bulk rename files in a directory.
+
+options:
+  -h, --help         show this help message and exit
+  --in_dir IN_DIR    The path to the directory containing files to rename. Default is './sample_files'.
+  --out_dir OUT_DIR  The path to the directory where renamed files will be saved. Default is './renamed_sample_files'.
+  --pattern PATTERN  The renaming pattern. Use {name} for original name, {ext} for extension, and {num} for a sequential number. Default is 'renamed_{num}_{name}.{ext}'.
+
+Arguments: {
+    "in_dir": "./sample_files",
+    "out_dir": "./renamed_sample_files",
+    "pattern": "renamed_{num}_{name}.{ext}",
+    "in_dir_safe": "/Development/future-connect-training/fc-python-projects/5-large-file-renamer/sample_files",
+    "out_dir_safe": /Development/future-connect-training/fc-python-projects/5-large-file-renamer/renamed_sample_files"
+} 
+
+Renaming files
+  * From: /Development/future-connect-training/fc-python-projects/5-large-file-renamer/sample_files
+  * To: /Development/future-connect-training/fc-python-projects/5-large-file-renamer/renamed_sample_files
+  * Pattern: renamed_{num}_{name}.{ext}
+
+Copy: not_a_sample.md -> renamed_1_not_a_sample.md
+File copied successfully.
+Copy: sample_2.txt -> renamed_2_sample_2.txt
+File copied successfully.
+Copy: sample_3.txt -> renamed_3_sample_3.txt
+File copied successfully.
+Copy: sample_1.txt -> renamed_4_sample_1.txt
+File copied successfully.
 """
 ```
 
 #### Notes:
-- TODO
+- I thought about this one and considered several approaches (I decided to do #2):
+  1. Just allow entry of a path and list the files and rename them using os.rename according to a hard coded algorithm
+	2. Create a more CLI tool which accepts args and will create a copy of the original file with a new name in a new folder (safer)
+- Since entering in paths is pretty risky for security reasons I decided to restrict the in_path and out_path to folders in the script folder
+- Because I chose the safer approach I ended up using a file copy instead of os.rename
 
 -----------------
 
 ### Project 6: Web Scraping
 
-#### The task is to scrape the list of largest companies in US by revenue form wikipedia using Beautiful Soup in Python. The data required to be extracted includes the rank, name of company, Industry, Revenue, Revenue growth, Headquarters for the top 20 US companies by revenue.
+#### The task is to scrape the list of largest companies in US by revenue form wikipedia using Beautiful Soup in Python. The data required to be extracted includes the Rank, Name of company, Industry, Revenue, Revenue growth, Headquarters for the top US companies by revenue.
 ```Python
-# See folder `4-zodiac-sign` for my code
+# See folder `6-web-scraping` for my code
 
 """
-Sample output:-
+Sample output (first 30 rows out of 100):-
 
-TODO
+Web Scraping: Largest Companies in the US by Revenue
+
+rank                                name                           industry revenue_usd_millions revenue_growth employees                               headquarters
+   1                             Walmart                             Retail              680,985           5.1% 2,100,000                      Bentonville, Arkansas
+   2                              Amazon          Retail andcloud computing              637,959          11.0% 1,556,000                        Seattle, Washington
+   3                  UnitedHealth Group                         Healthcare              400,278           7.7%   400,000                      Minnetonka, Minnesota
+   4                               Apple                         Technology              391,035           2.0%   164,000                      Cupertino, California
+   5                          CVS Health                         Healthcare              372,809           4.2%   259,500                   Woonsocket, Rhode Island
+   6                  Berkshire Hathaway                       Conglomerate              371,433           1.9%   392,400                            Omaha, Nebraska
+   7                            Alphabet      Technologyand cloud computing              350,018          13.9%   183,323                  Mountain View, California
+   8                         Exxon Mobil                 Petroleum industry              349,595           1.5%    60,900                              Spring, Texas
+   9                McKesson Corporation                         Healthcare              308,951          11.7%    48,000                              Irving, Texas
+  10                             Cencora                 Pharmacy wholesale              293,959          12.1%    44,000                 Conshohocken, Pennsylvania
+  11                      JPMorgan Chase                         Financials              278,906          16.5%   317,233                    New York City, New York
+  12                    Costco Wholesale                             Retail              254,453           5.0%   333,000                       Issaquah, Washington
+  13                               Cigna                   Health insurance              247,121          26.6%    72,398                    Bloomfield, Connecticut
+  14                           Microsoft     Technology and cloud computing              245,122          15.7%   228,000                        Redmond, Washington
+  15                     Cardinal Health                         Healthcare              226,827          10.6%    48,411                               Dublin, Ohio
+  16                             Chevron                 Petroleum industry              202,792           0.9%    45,298                             Houston, Texas
+  17                     Bank of America                         Financials              192,434          11.9%   213,193                  Charlotte, North Carolina
+  18                      General Motors                Automotive industry              187,442           9.1%   162,000                          Detroit, Michigan
+  19                          Ford Motor                Automotive industry              184,992           5.0%   171,000                         Dearborn, Michigan
+  20                     Elevance Health                         Healthcare              177,011           3.3%   103,679                      Indianapolis, Indiana
+  21                           Citigroup                         Financials              170,757           8.9%   227,855                    New York City, New York
+  22                      Meta Platforms                         Technology              164,501          21.9%    74,067                     Menlo Park, California
+  23                             Centene                         Healthcare              163,071           5.9%    60,500                        St. Louis, Missouri
+  24                          Home Depot                             Retail              159,514           4.5%   470,100                           Atlanta, Georgia
+  25                          Fannie Mae                         Financials              152,670           8.1%     8,200                           Washington, D.C.
+  26            Walgreens Boots Alliance            Pharmaceutical industry              147,658           6.2%   252,500                        Deerfield, Illinois
+  27                              Kroger                             Retail              147,123          -1.9%   409,000                           Cincinnati, Ohio
+  28                         Phillips 66                 Petroleum industry              145,496          -2.9%    13,200                             Houston, Texas
+  29                  Marathon Petroleum                 Petroleum industry              140,412          -6.6%    18,300                              Findlay, Ohio
+  30              Verizon Communications                 Telecommunications              134,788           0.6%    99,600                    New York City, New York
 """
 ```
 
 #### Notes:
-- TODO
+- I decided to just scrape the page and create a simple Pandas data frame to hold the data
+- I left the numbers as formatted strings, but I could have easily added more columns to hold numeric versions of the values (eg. revenue_usd_millions_num)
+- I decided not to output the Pandas dataset as a CSV file and just print to console, but it's easy to do so once you have the DataFrame
 
 -----------------
 
 ### My Notes:
-- Overall the activities were very simple and I kept the solutions very simple since the goal of this module is to prove I can write basic Python code to an instructor
-- Activity 6 was pretty vague and not well defined so I chose the simplest (laziest?) solution. I could have chosen expression parsing but it was more work than I felt like doing for such a basic module.
+- Overall the projects were very simple and I kept the solutions very simple.
+- I could have chosen to use tkinter for displaying UI elements and capturing form but all the projects had very simple needs for user input and none of the projects asked for it to be used.
+- I did not end up using the graph plotting library since none of the projects asked for a graph. The most suitable one would have been the web scraping of top US companies by revenue - I could have output a pie chart or bar graph.
+- I did not choose to save any of the datasets to a database via sqllite3 since the projects themselves did not ask for it. Either the Zodiac Sign or the the Web Scraping project would have been fine for saving to a database.
+- Some feedback: Generally speaking I believe that if a tool is taught then an assignment or project should test the use of that tool. The projects were overall not very well specced and they did not test all the material taught on this module.
 
 `[END OF DOCUMENT]`
