@@ -2,10 +2,6 @@
 """
 Renames all files in a directory based on a specified pattern.
 
-Notes:
-- Often, we have a large number of files in a directory with names that do not follow a specific pattern or are not easy to understand. Renaming each file manually can be time-consuming and error-prone. To solve this problem, we need a program that can rename a large number of files in bulk, based on a specified pattern.
-- Can you develop a Python program that takes a directory path and a pattern as input, and renames all the files in the directory that match the pattern to a new name that follows the specified pattern?
-
 Requirements:
 - The program should accept the following command-line arguments:
   * --in_dir: The path to the directory containing files to rename.
@@ -80,9 +76,8 @@ def rename_files(in_dir_safe, out_dir_safe, pattern):
     Renames files in a directory based on a given pattern.
 
     Args:
-        root_dir (str): The root directory to prevent directory traversal.
-        in_dir (str): The path to the directory containing the files.
-        out_dir (str): The path to the directory where renamed files will be saved.
+        in_dir_safe (str): The safe absolute path to the directory containing the files.
+        out_dir_safe (str): The safe absolute path to the directory where renamed files will be saved.
         pattern (str): The renaming pattern with placeholders.
     """
     if not in_dir_safe or not out_dir_safe:
