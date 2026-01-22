@@ -2,10 +2,8 @@
 """
 A simple zodiac sign calculator in Python.
 
-Notes:
-How can you write a Python program that takes name and birthdate as input and outputs the corresponding Zodiac sign and store it in a file using Pandas?
-
 Requirements:
+- Use pandas to handle CSV file operations.
 - The user will be prompted to enter their NAME then their BIRTHDATE (in the format DD-MM).
 - Input validation
   * The NAME must be at least 2 characters long after trimming leading and trailing whitespace.
