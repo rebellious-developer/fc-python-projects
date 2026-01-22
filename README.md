@@ -56,10 +56,16 @@ git push origin
 9. I then went through the projects and added a folder for each and a single python file for each. File format is `{projectnum}-{projectname}.py`
 
 These are:
-- [1-rock-paper-scissors](1-rock-paper-scissors.py) — A simple game of Rock-Paper-Scissors in Python that takes the input as Rock, Paper, or Scissors and allows you to compete against the computer.
+- [1-rock-paper-scissors-game](1-rock-paper-scissors-game/rock-paper-scissors-game.py) — A simple game of Rock-Paper-Scissors in Python that takes the input as Rock, Paper, or Scissors and allows you to compete against the computer.
+- [2-binary-search-algorithm](2-binary-search-algorithm/binary-search-algorithm.py) — Implements a Binary Search algorithm to efficiently find a target value in a sorted list.
+- [3-email-multiple-recipients](3-email-multiple-recipients/email-multiple-recipients.py) — Sends emails to single or multiple recipients using an email account, with configuration options.
+- [4-zodiac-sign](4-zodiac-sign/zodiac-sign.py) — Determines a person's Zodiac sign based on their birthdate and saves the result.
+- [5-large-file-renamer](5-large-file-renamer/large-file-renamer.py) — A utility to bulk-rename files in a directory based on a specified pattern.
+- [6-web-scraping](6-web-scraping/web-scraping.py) — A script to scrape data from Wikipedia using Beautiful Soup and pandas.
+
 
 ## Projects
-The projects were:
+The projects as specced were:
 
 ### Project 1: Rock Paper Scissors Game
 
@@ -251,7 +257,9 @@ Goodbye!
 ```
 
 #### Notes:
-- TODO
+- I entered the requirements in the docblock at the top of the Python script
+- I decided to keep the bithdate entry as DD-MM instead of a full date format like YYYY-MM-DD
+- I decided to use a simple CSV to store the signs and their date ranges (using Pandas to grab the data)
 
 -----------------
 
@@ -304,6 +312,7 @@ File copied successfully.
 ```
 
 #### Notes:
+- I entered the requirements in the docblock at the top of the Python script
 - I thought about this one and considered several approaches (I decided to do #2):
   1. Just allow entry of a path and list the files and rename them using os.rename according to a hard coded algorithm
 	2. Create a more CLI tool which accepts args and will create a copy of the original file with a new name in a new folder (safer)
@@ -358,6 +367,7 @@ rank                                name                           industry reve
 ```
 
 #### Notes:
+- I entered the requirements in the docblock at the top of the Python script
 - I decided to just scrape the page and create a simple Pandas data frame to hold the data
 - I left the numbers as formatted strings, but I could have easily added more columns to hold numeric versions of the values (eg. revenue_usd_millions_num)
 - I decided not to output the Pandas dataset as a CSV file and just print to console, but it's easy to do so once you have the DataFrame
